@@ -87,9 +87,9 @@ namespace ExamenPrograPromedio1.Cod._Pablo
         public void ContruirEstructuras(bool confir)
         {
             Console.WriteLine("Elegir Estructura q Desea Construir");
-            Console.WriteLine("1. Granja _______ 50 de energía");
-            Console.WriteLine("2. Torre  _______ 100 de energía");
-            Console.WriteLine("3. Casa   _______ 50 de energía");
+            Console.WriteLine("1. Granja _______ 50 de energía _____ 5 Turnos");
+            Console.WriteLine("2. Torre  _______ 100 de energía ____ 10 Turnos");
+            Console.WriteLine("3. Casa   _______ 50 de energía _____ 2 Turnos");
             int Opt = int.Parse(Console.ReadLine());
             switch (Opt)
             {
@@ -101,13 +101,41 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                         confirmer = false;
                         if(temp == 5)
                         {
+                            ElementosBase.Add(new Estructuras(/*Elementos dentro de la clase estructuras que pertenencen a Granja*/));
                             Console.WriteLine("Edificio creado");
                         }
                     }
                     break;
                 case 2:
-                    break;
-            }
+                    if (confir)
+                    {
+                        int temp = 0;
+                        temp++;
+                        confirmer = false;
+                        if (temp == 10)
+                        {
+                            ElementosBase.Add(new Estructuras(/*Elementos dentro de la clase estructuras que pertenecen a Torre*/));
+                            Console.WriteLine("Edificio creado");
+                        }
+                    }
+                        break;
+                    case 3:
+                    if (confir)
+                    {
+                        int temp = 0;
+                        temp++;
+                        confirmer = false;
+                        if (temp == 2)
+                        {
+                            ElementosBase.Add(new Estructuras(/*Elementos dentro de la clase estructuras que pertenecen a Casa*/));
+                            Console.WriteLine("Edificio creado");
+                        }
+                    }
+                        break;
+                    default:
+                    Console.WriteLine("Valor Incorrecto");
+                        break;
+                    }
         }
         public void ConstruirUnidad()
         {

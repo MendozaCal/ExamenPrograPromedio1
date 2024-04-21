@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Permissions;
 using System.Text;
@@ -10,12 +11,22 @@ namespace ExamenPrograPromedio1.Cod._Pablo
 {
     internal class Juego
     {
-        int turno = 0;
+        Elementos[] ElementosArray = new Elementos[5];
+        
+        List<Elementos> ElementosBase; 
+        int Turno = 0;
+        int TurnTo = 0;
         public void MainMenu()
         {
+            ElementosArray[0] = new Estructuras();
+            ElementosArray[1] = new Estructuras();
+            ElementosArray[2] = new Estructuras();
+            ElementosArray[3] = new Unidades();
+            ElementosArray[4] = new Unidades();
+            ElementosBase = new List<Elementos>();
             bool resumen = true;
             Console.WriteLine("Bienvenido");
-            Console.WriteLine("Actualmente cuentas con 100 de energía Administralos correctamente para ganar");
+            Console.WriteLine("Actualmente cuentas con 200 de energía Administralos correctamente para ganar");
             while (resumen)
             {
                 Console.WriteLine("Elije una opción");
@@ -29,7 +40,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
 
                 if (Option == 4 || Option == 5)
                 {
-                    turno++;
+                    Turno++;
                 }
                 switch (Option)
                 {
@@ -38,7 +49,8 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                         ShowBase();
                         break;
                     case 2:
-                        ContruirEstructuras();
+                        ContruirEstructuras(Turno);
+                        
                         break;
                     case 3:
                         ConstruirUnidad();
@@ -46,14 +58,14 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                     case 4:
                         Ataque();
                         //Primos();
-                        //Console.WriteLine($"Numero de turno: {turno}");
-                        Fibonacci(turno);
+                        //Console.WriteLine($"Numero de Turno: {Turno}");
+                        Fibonacci(Turno);
                         break;
                     case 5:
                         SaltarTurno();
                         //Primos();
-                        //Console.WriteLine($"Numero de turno: {turno}");
-                        Fibonacci(turno);
+                        //Console.WriteLine($"Numero de Turno: {Turno}");
+                        Fibonacci(Turno);
                         
                         break;
                     case 6:
@@ -62,18 +74,39 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                     default:
                         Console.WriteLine("Valor Incorrecto");
                         break;
-
                 }
-
             }
         }
         public void ShowBase()
         {
-
-        }
-        public void ContruirEstructuras()
+            foreach (Elementos elementosBase in ElementosBase)
+            {
+                Console.WriteLine(elementosBase/*Método en clase Elementos que devuelva datos del player*/);
+            }
+}
+        public void ContruirEstructuras(int turn)
         {
-
+            Console.WriteLine("Elegir Estructura q Desea Construir");
+            Console.WriteLine("1. Granja _______ 50 de energía");
+            Console.WriteLine("2. Torre  _______ 100 de energía");
+            Console.WriteLine("3. Casa   _______ 50 de energía");
+            int Opt = int.Parse(Console.ReadLine());
+            switch (Opt)
+            {
+                case 1:
+                    for (int i = 0; i <= 5; i++)
+                    {
+                        int comparation = 0;
+                        comparation++;
+                        if (comparation <= 5)
+                        {
+                            Console.WriteLine("avr");
+                        }
+                    }
+                    break;
+                case 2:
+                    break;
+            }
         }
         public void ConstruirUnidad()
         {
@@ -106,20 +139,20 @@ namespace ExamenPrograPromedio1.Cod._Pablo
         public void Primos()
         {
             int a = 0;   
-            for (int i = 1; i < (turno + 1); i++)
+            for (int i = 1; i < (Turno + 1); i++)
             {
-                if (turno % i == 0)
+                if (Turno % i == 0)
                 {
                     a++;
                 }
             }
             if (a != 2)
             {
-                Console.WriteLine(turno + " No es primo");
+                Console.WriteLine(Turno + " No es primo");
             }
             else
             {
-                Console.WriteLine(turno + " Si es primo");
+                Console.WriteLine(Turno + " Si es primo");
             }
             Console.ReadLine();
         }

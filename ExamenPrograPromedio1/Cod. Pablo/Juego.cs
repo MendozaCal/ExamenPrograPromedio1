@@ -8,7 +8,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
 {
     internal class Juego
     {
-        int turno = 1;
+        int turno = 0;
         public void MainMenu()
         {
             bool resumen = true;
@@ -24,8 +24,14 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                 Console.WriteLine("5. Saltar Turno");
                 Console.WriteLine("6. Salir del Juego");
                 int Option = int.Parse(Console.ReadLine());
+
+                if (Option == 4 || Option == 5)
+                {
+                    turno++;
+                }
                 switch (Option)
                 {
+                    
                     case 1:
                         ShowBase();
                         break;
@@ -36,13 +42,18 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                         ConstruirUnidad();
                         break;
                     case 4:
-                        Atacar();
+                        Ataque();
+                        Console.WriteLine($"Numero de turno: {turno}");
                         break;
                     case 5:
+                        Console.WriteLine($"Numero de turno: {turno}");
                         SaltarTurno();
                         break;
                     case 6:
                         resumen = false;
+                        break;
+                    default:
+                        Console.WriteLine("Valor Incorrecto");
                         break;
                 }
                 
@@ -60,7 +71,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
         {
 
         }
-        public void Atacar()
+        public void Ataque()
         {
 
         }

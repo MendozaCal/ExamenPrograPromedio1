@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExamenPrograPromedio1.Cod._Pablo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace ExamenPrograPromedio1
     {
         static void Main(string[] args)
         {
+            Juego juego = new Juego();
+            juego.MainMenu();
         }
     }
 }

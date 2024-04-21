@@ -13,8 +13,9 @@ namespace ExamenPrograPromedio1.Cod._Pablo
     {
         Elementos[] ElementosArray = new Elementos[5];
         
-        List<Elementos> ElementosBase; 
-        int Turno = 0;
+        List<Elementos> ElementosBase = new List<Elementos>(); 
+        List<Casa> casa = new List<Casa>();
+                    
         bool confirmer = false;
         public void MainMenu()
         {
@@ -23,7 +24,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
             ElementosArray[2] = new Estructuras();
             ElementosArray[3] = new Unidades();
             ElementosArray[4] = new Unidades();
-            ElementosBase = new List<Elementos>();
+            int Turno = 0;
             bool resumen = true;
             Console.WriteLine("Bienvenido");
             Console.WriteLine("Actualmente cuentas con 200 de energía Administralos correctamente para ganar");
@@ -53,7 +54,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                         ContruirEstructuras(confirmer);
                         break;
                     case 3:
-                        ConstruirUnidad();
+                        ConstruirUnidad(confirmer);
                         break;
                     case 4:
                         Ataque();
@@ -137,9 +138,57 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                         break;
                     }
         }
-        public void ConstruirUnidad()
+        public void ConstruirUnidad(bool confir)
         {
+            Console.WriteLine("Elegir Unidad que Desea Construir");
+            Console.WriteLine("1. Soldado  _____ 0 energía _____ 2 Turnos");
+            Console.WriteLine("2. Arquero  _____ 50 energía ____ 2 Turnos");
+            int Opt = int.Parse(Console.ReadLine());
+            switch (Opt)
+            {
+                case 1:
+                    Console.WriteLine("Para construir soldado necesita una casa libre");
+                    foreach (var elementos in ElementosBase)
+                    {
+                        if (elementos is Casa)
+                        {
+                            casa.Add((Casa)elementos);
+                        }
+                    }
+                    foreach(var casa in casa)
+                    {
+                        Console.WriteLine(casa/*.Listado de casas libres sin unidad soldado*/);
+                    }
+                    if (confir)
+                    {
+                        int temp = 0;
+                        temp++;
+                        confirmer = false;
+                        if (temp == 2)
+                        {
+                            ElementosBase.Add(new Estructuras(/*Elementos dentro de la clase estructuras que pertenecen a Casa*/));
+                            Console.WriteLine("Unidad creada");
+                        }
+                    }
+                    break;
+                case 2:
+                    if (confir)
+                    {
+                        int temp = 0;
+                        temp++;
+                        confirmer = false;
+                        if (temp == 2)
+                        {
+                            ElementosBase.Add(new Estructuras(/*Elementos dentro de la clase estructuras que pertenecen a Casa*/));
+                            Console.WriteLine("Unidad creada");
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Opción Inválida");
+                    break;
 
+            }    
         }
         public void Ataque()
         {

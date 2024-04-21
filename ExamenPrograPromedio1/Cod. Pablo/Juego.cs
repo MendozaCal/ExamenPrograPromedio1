@@ -15,7 +15,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
         
         List<Elementos> ElementosBase; 
         int Turno = 0;
-        int TurnTo = 0;
+        bool confirmer = false;
         public void MainMenu()
         {
             ElementosArray[0] = new Estructuras();
@@ -41,6 +41,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                 if (Option == 4 || Option == 5)
                 {
                     Turno++;
+                    confirmer = true;
                 }
                 switch (Option)
                 {
@@ -49,8 +50,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                         ShowBase();
                         break;
                     case 2:
-                        ContruirEstructuras(Turno);
-                        
+                        ContruirEstructuras(confirmer);
                         break;
                     case 3:
                         ConstruirUnidad();
@@ -84,7 +84,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                 Console.WriteLine(elementosBase/*Método en clase Elementos que devuelva datos del player*/);
             }
 }
-        public void ContruirEstructuras(int turn)
+        public void ContruirEstructuras(bool confir)
         {
             Console.WriteLine("Elegir Estructura q Desea Construir");
             Console.WriteLine("1. Granja _______ 50 de energía");
@@ -94,13 +94,14 @@ namespace ExamenPrograPromedio1.Cod._Pablo
             switch (Opt)
             {
                 case 1:
-                    for (int i = 0; i <= 5; i++)
+                    if (confir)
                     {
-                        int comparation = 0;
-                        comparation++;
-                        if (comparation <= 5)
+                        int temp = 0;
+                        temp++;
+                        confirmer = false;
+                        if(temp == 5)
                         {
-                            Console.WriteLine("avr");
+                            Console.WriteLine("Edificio creado");
                         }
                     }
                     break;

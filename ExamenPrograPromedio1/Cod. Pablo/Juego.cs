@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace ExamenPrograPromedio1.Cod._Pablo
 {
@@ -31,7 +33,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                 }
                 switch (Option)
                 {
-                    
+
                     case 1:
                         ShowBase();
                         break;
@@ -43,11 +45,16 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                         break;
                     case 4:
                         Ataque();
-                        Console.WriteLine($"Numero de turno: {turno}");
+                        //Primos();
+                        //Console.WriteLine($"Numero de turno: {turno}");
+                        Fibonacci(turno);
                         break;
                     case 5:
-                        Console.WriteLine($"Numero de turno: {turno}");
                         SaltarTurno();
+                        //Primos();
+                        //Console.WriteLine($"Numero de turno: {turno}");
+                        Fibonacci(turno);
+                        
                         break;
                     case 6:
                         resumen = false;
@@ -55,8 +62,9 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                     default:
                         Console.WriteLine("Valor Incorrecto");
                         break;
+
                 }
-                
+
             }
         }
         public void ShowBase()
@@ -79,7 +87,41 @@ namespace ExamenPrograPromedio1.Cod._Pablo
         {
 
         }
-
-
+        public void Fibonacci(int turn)
+        {
+            int v1 = 0;
+            int v2 = 1;
+            for (int i = 0; i < 30; i++)
+            {
+                int temp = v1;
+                v1 = v2;
+                v2 = temp + v1;
+                if (turn == v1)
+                {
+                    Console.WriteLine($"Coinsidencia {turn} y {v1}");
+                }
+            }
+            
+        }
+        public void Primos()
+        {
+            int a = 0;   
+            for (int i = 1; i < (turno + 1); i++)
+            {
+                if (turno % i == 0)
+                {
+                    a++;
+                }
+            }
+            if (a != 2)
+            {
+                Console.WriteLine(turno + " No es primo");
+            }
+            else
+            {
+                Console.WriteLine(turno + " Si es primo");
+            }
+            Console.ReadLine();
+        }
     }
 }

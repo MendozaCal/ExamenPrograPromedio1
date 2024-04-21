@@ -11,7 +11,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
         int turno = 1;
         public void MainMenu()
         {
-            bool resumen = false;
+            bool resumen = true;
             Console.WriteLine("Bienvenido");
             Console.WriteLine("Actualmente cuentas con 100 de energía Administralos correctamente para ganar");
             while (resumen)
@@ -26,9 +26,23 @@ namespace ExamenPrograPromedio1.Cod._Pablo
                 int Option = int.Parse(Console.ReadLine());
                 switch (Option)
                 {
-                    case 1 : 
+                    case 1:
+                        ShowBase();
                         break;
-                    case 2 : 
+                    case 2:
+                        ContruirEstructuras();
+                        break;
+                    case 3:
+                        ConstruirUnidad();
+                        break;
+                    case 4:
+                        Atacar();
+                        break;
+                    case 5:
+                        SaltarTurno();
+                        break;
+                    case 6:
+                        resumen = false;
                         break;
                 }
                 

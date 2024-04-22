@@ -11,6 +11,7 @@ namespace ExamenPrograPromedio1
         public string Nombre { get; set; }
         public int Costo { get; set; }
         public int TiempoConstruccion { get; set; }
+
     }
 
 }

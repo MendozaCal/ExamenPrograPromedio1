@@ -20,6 +20,7 @@ namespace ExamenPrograPromedio1
             TiempoConstruccion = 10;
             Dano = 50;
             vida = 200;
+
         }
 
     }

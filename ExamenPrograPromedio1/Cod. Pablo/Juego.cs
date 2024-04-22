@@ -15,7 +15,7 @@ namespace ExamenPrograPromedio1.Cod._Pablo
         
         List<Elementos> ElementosBase = new List<Elementos>(); 
         List<Casa> casa = new List<Casa>();
-                    
+        int Turno = 0;
         bool confirmer = false;
         public void MainMenu()
         {
@@ -24,7 +24,6 @@ namespace ExamenPrograPromedio1.Cod._Pablo
             ElementosArray[2] = new Estructuras();
             ElementosArray[3] = new Unidades();
             ElementosArray[4] = new Unidades();
-            int Turno = 0;
             bool resumen = true;
             Console.WriteLine("Bienvenido");
             Console.WriteLine("Actualmente cuentas con 200 de energía Administralos correctamente para ganar");

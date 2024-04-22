@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace ExamenPrograPromedio1
 {
-    internal class Arquero:Unidad
+    internal class Arquero : Unidad
     {
-        public Arquero() : base("Arquero", 60, 15)
+        public int Costo { get; set; } = 50;
+        public void ConfigurarArquero()
         {
-            
+            Name  = "Arquero";
+            Vida = 70;
+            Dano = 15;
         }
     }
 }
